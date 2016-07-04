@@ -28,9 +28,11 @@ function roundColor(color) {
 
 function backToHex(color) {
     var exploded = color.split(',');
-    var hexColor = '';
+    var hexColor = '', singleColor = '';
     for (var i = 0; i < 3; i++) {
-        hexColor += parseInt(exploded[i], 10).toString(16);
+        singleColor = parseInt(exploded[i], 10).toString(16);
+        hexColor += (singleColor.length === 1) ? '0' : '';
+        hexColor += singleColor;
     }
     return hexColor;
 }
